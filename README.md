@@ -94,12 +94,12 @@ eg. `source ./install-terraform-cli.sh`
 In order to make our bash scripts executable we need to change linux permission for the fix to be executable at the user mode
 
 ```sh
-chmod u+x ./bin/install_terraform_cli
+chmod u+x ./bin/install-terraform-cli
 ```
 alternatively:
 
 ```sh
-chmod 744 ./bin/install_terraform_cli
+chmod 744 ./bin/install-terraform-cli
 ```
 
 https://en.wikipedia.org/wiki/Chmod
