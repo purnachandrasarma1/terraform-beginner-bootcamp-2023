@@ -203,3 +203,78 @@ We'll need to generate AWS CLI credits from IAM User in order to the user AWS CL
 
 - Logged in to AWS console and created **iamadmin** user form IAM Console
 - The **iamadmin** user is currently given **Admin Acess**
+
+
+# Terraform Basics
+
+
+### Terraform Registry
+
+Terraform sources their providers and modules from the Terraform registry which located at [registry.terraform.io](https://registry.terraform.io/)
+
+- **Providers** is an interface to APIs that will allow to create resources in terraform.
+- **Modules** are a way to make large amount of terraform code modular, portable and sharable.
+
+[Randon Terraform Provider](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+
+### Terraform Console
+
+We can see a list of all the Terrform commands by simply typing `terraform`
+
+
+### Terraform Init
+
+At the start of a new terraform project we will run `terraform init` to download the binaries for the terraform providers that we'll use in this project.
+
+
+### Terraform Plan
+
+`terrafom plan`
+
+This will produce a changeset detailing the current state of our infrastructure and the upcoming modifications.
+
+You can produce this changeset, referred to as a `plan` for use in subsequent application processes, but frequently, you may opt not to generate an output.
+
+
+### Terraform Apply
+
+`terraform apply`
+
+This will initiate the execution of a plan, transferring the changeset for execution by Terraform. The `apply` operation will request confirmation with a `yes` or `no` prompt.
+
+If there's a need to automatically approve an `apply`, you can do so by specifying the auto-approve flag, for instance: `terraform apply --auto-approve`
+
+
+### Terraform Destroy
+
+`terraform destroy` This will basically destroy the resources that were created.
+
+You can also employ the auto-approve flag to bypass the approval prompt, like so: `terraform apply --auto-approve`
+
+
+### Terraform Lock Files
+
+The file `.terraform.lock.hcl` includes the specified versions for providers or modules that are intended for use with this project.
+
+The Terraform Lock File **should be committed** to your Version Control System (VSC) eg. Github
+
+
+
+### Terraform State Files
+
+The file `.terraform.tfstate` holds crucial data regarding the present state of your infrastructure.
+
+It's essential to note that this file **should never be committed** to your version control system (VCS), as it may contain sensitive information. 
+
+Losing this file means losing insight into your infrastructure's current state.
+
+Additionally, ``.terraform.tfstate.backup` serves as a backup of the previous state file.
+
+
+### Terraform Directory
+
+
+The `.terraform` directory houses Terraform provider binaries.
+
+
