@@ -278,3 +278,18 @@ Additionally, ``.terraform.tfstate.backup` serves as a backup of the previous st
 The `.terraform` directory houses Terraform provider binaries.
 
 
+# Issue was with main.tf file
+
+- Here are some important changes I made:
+
+- Updated the aws provider source to `hashicorp/aws` since we are working with AWS resources.
+- Uncommented the provider "aws" block and set the AWS region to `us-east-1`. You should replace this with your desired region.
+- Uncommented the resource `aws_s3_bucket` `example` block and added ACL and tags configurations.
+- Make sure to replace `MyBucket` in the tags block with your desired bucket name prefix. After making these changes, run terraform init and terraform apply to apply the configuration and create the S3 bucket with the specified settings. 
+- Ensure that your AWS credentials and configuration are correctly set up for Terraform to access your AWS account.
+
+# Random Bucket Created
+ aws_s3_bucket = "cvexxynmxo4qz4n68koat0kska7ijeyh"
+
+ ## Finally the randomly create bucket was destroyed using
+ `terrafrom destroy`
