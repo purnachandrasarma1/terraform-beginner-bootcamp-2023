@@ -1,29 +1,38 @@
 terraform {
   required_providers {
-    random = {
-      source = "hashicorp/random"
-      version = "3.5.1"
+    aws = {
+      source = "hashicorp/aws"
+      version = ">= 3.5.1"
     }
   }
 }
 
-
-provider "random" {
-  # Configuration options
+provider "aws" {
+  region = "us-east-1"  # You can specify your desired AWS region here.
 }
 
-resource "random_string" "random_bucket_name_id" {
-  length = 8
-  special = false
+resource "aws_s3_bucket" "example" {
+  bucket = random_string.random_bucket_name.result
+
+  # You can specify other bucket settings here if needed, such as ACL and tags
+  
+
+  # acl = "private"
+
+  tags = {
+    Name       = "MyBucket"  # Replace with your desired bucket name prefix
+    Environment = "Dev"
+  }
 }
 
 resource "random_string" "random_bucket_name" {
-  length = 12
-  special = false
+  length           = 32
+  special          = false
+  upper            = false
+  numeric          = true
+  override_special = "/@"
 }
 
-
-output "random_bucket_name_result" {
-    value = random_string.random_bucket_name.result
+output "aws_s3_bucket" {
+  value = random_string.random_bucket_name.result
 }
-
