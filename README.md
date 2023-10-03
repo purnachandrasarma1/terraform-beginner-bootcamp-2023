@@ -293,3 +293,15 @@ The `.terraform` directory houses Terraform provider binaries.
 
  ## Finally the randomly create bucket was destroyed using
  `terrafrom destroy`
+
+ ## Error Encountered
+
+**Issue Summary:**
+
+When running `terraform plan` in Terraform Cloud, the following errors were encountered:
+
+1. **No Valid Credential Sources Found:** The `provider "aws"` in the `main.tf` file encountered an error indicating no valid credential sources were found. It's recommended to refer to [Terraform AWS Provider documentation](https://registry.terraform.io/providers/hashicorp/aws) for guidance on providing credentials.
+
+2. **Failed to Refresh Cached Credentials:** An error occurred during an attempt to refresh cached credentials, stating that no EC2 IMDS (Instance Metadata Service) role was found. This resulted in the operation failing with a context deadline exceeded error.
+
+### This will be later addressed by creating "generate_tfrc_credentials.sh" bash script
