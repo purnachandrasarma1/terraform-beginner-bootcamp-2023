@@ -305,3 +305,6 @@ When running `terraform plan` in Terraform Cloud, the following errors were enco
 2. **Failed to Refresh Cached Credentials:** An error occurred during an attempt to refresh cached credentials, stating that no EC2 IMDS (Instance Metadata Service) role was found. This resulted in the operation failing with a context deadline exceeded error.
 
 ### This will be later addressed by creating "generate_tfrc_credentials.sh" bash script
+
+## Terraform Organization 
+**Purna_Sharma** organization added in `main.tf` file
