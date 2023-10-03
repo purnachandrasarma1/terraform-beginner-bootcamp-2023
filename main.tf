@@ -1,4 +1,19 @@
 terraform {
+ # backend "remote" {
+  #   hostname = "app.terraform.io"
+  #   organization = "Purna_Sharma"
+
+  #   workspaces {
+  #     name = "terra-house-1"
+  #   }
+  # }
+  cloud {
+    organization = "Purna_Sharma"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
